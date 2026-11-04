@@ -169,10 +169,11 @@ export function ContactsSkin(p: Props) {
               .sort((a, b) => a.title.localeCompare(b.title, "zh-CN"))
               .map((i) => (
                 <Row
-                  key={i.id}
-                  item={i}
-                  onItem={p.onItem}
-                  leading={<Avatar name={i.title} />}
+  key={i.id}
+  item={i}
+  onItem={p.onItem}
+  leading={<Avatar name={i.title} src={i.avatar} />}
+  hideTime
                 />
               ))}
           </section>

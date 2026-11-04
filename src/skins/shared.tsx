@@ -136,11 +136,13 @@ export function Row({
   onItem,
   leading,
   children,
+  hideTime = false,
 }: {
   item: Item;
   onItem: (i: Item) => void;
   leading?: ReactNode;
   children?: ReactNode;
+  hideTime?: boolean;
 }) {
   return (
     <button className="catalog-row" onClick={() => onItem(item)}>
@@ -148,7 +150,7 @@ export function Row({
       <span>
         <strong>{item.title}</strong>
         <p>{item.body.split("\n")[0]}</p>
-        <small>{item.time}</small>
+        {!hideTime && <small>{item.time}</small>}
       </span>
       {children ??
         (item.password ? (
