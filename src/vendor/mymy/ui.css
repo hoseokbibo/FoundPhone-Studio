@@ -896,3 +896,9 @@
 .mymy-ui .kzxx {
   white-space: pre-line;
 }
+.kz-date {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin: 14px 0 10px;
+}
