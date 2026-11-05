@@ -446,10 +446,7 @@ function PhoneRuntime({
                   name={
                     work.apps.find((a) => a.id === app)?.name ?? plugin.name
                   }
-                  items={[
-                    ...(work.data[app] ?? []),
-                    ...(s.messages[app] ?? []),
-                  ]}
+                items={work.data[app] ?? []}
                   creator={creator}
                   state={s}
                   onRead={(id) => event("read", id)}

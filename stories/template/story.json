@@ -30,68 +30,57 @@
     {
       "id": "owner",
       "name": "hope",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "namjoon",
       "name": "俊",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "jin",
       "name": "硕珍哥",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "yoongi",
       "name": "玧其哥",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "jimin",
       "name": "智旻尼",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "taehyung",
       "name": "泰亨儿",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "jungkook",
       "name": "柾国",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "mom",
       "name": "妈妈",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "dad",
       "name": "爸爸",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "sister",
       "name": "姐姐",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     },
     {
       "id": "bangpd",
       "name": "方pd",
-      "phone": "***",
-      "folder": "__hidden__"
+      "phone": "***"
     }
   ],
   "chats": [
@@ -372,98 +361,7 @@
         }
       }
     ],
-    "contacts": [
-      {
-        "id": "contact-namjoon",
-        "title": "俊",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-jin",
-        "title": "硕珍哥",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-yoongi",
-        "title": "玧其哥",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-jimin",
-        "title": "智旻尼",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-taehyung",
-        "title": "泰亨儿",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-jungkook",
-        "title": "柾国",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-mom",
-        "title": "妈妈",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-dad",
-        "title": "爸爸",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-sister",
-        "title": "姐姐",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      },
-      {
-        "id": "contact-bangpd",
-        "title": "方pd",
-        "body": "***",
-        "time": "2026-03-01 10:00",
-        "sender": "hope",
-        "folder": "所有联系人",
-        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-      }
-    ]
+    "contacts": []
   },
   "variables": {},
   "events": [
