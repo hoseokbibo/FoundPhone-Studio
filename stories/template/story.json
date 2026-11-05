@@ -26,8 +26,323 @@
     "youtube",
     "spotify"
   ],
-  "contacts": [],
-  "chats": [],
+  "contacts": [
+    {
+      "id": "owner",
+      "name": "hope",
+      "phone": "***"
+    },
+    {
+      "id": "namjoon",
+      "name": "俊",
+      "phone": "***"
+    },
+    {
+      "id": "jin",
+      "name": "硕珍哥",
+      "phone": "***"
+    },
+    {
+      "id": "yoongi",
+      "name": "玧其哥",
+      "phone": "***"
+    },
+    {
+      "id": "jimin",
+      "name": "智旻尼",
+      "phone": "***"
+    },
+    {
+      "id": "taehyung",
+      "name": "泰亨儿",
+      "phone": "***"
+    },
+    {
+      "id": "jungkook",
+      "name": "柾国",
+      "phone": "***"
+    },
+    {
+      "id": "mom",
+      "name": "妈妈",
+      "phone": "***"
+    },
+    {
+      "id": "dad",
+      "name": "爸爸",
+      "phone": "***"
+    },
+    {
+      "id": "sister",
+      "name": "姐姐",
+      "phone": "***"
+    },
+    {
+      "id": "bangpd",
+      "name": "方pd",
+      "phone": "***"
+    }
+  ],
+  "chats": [
+    {
+      "id": "kakao-namjoon",
+      "app": "kakao",
+      "title": "俊",
+      "participants": [
+        "owner",
+        "namjoon"
+      ],
+      "messages": [
+        {
+          "id": "k1",
+          "senderId": "namjoon",
+          "body": "跟在后面的时候是不是又偷拍我了？",
+          "time": "2025-08-05 09:10"
+        },
+        {
+          "id": "k2",
+          "senderId": "owner",
+          "body": "自恋狂@.@",
+          "time": "2025-08-05 09:12"
+        },
+        {
+          "id": "k3",
+          "senderId": "owner",
+          "body": "",
+          "time": "2025-08-05 09:13",
+          "kind": "image",
+          "media": ""
+        },
+        {
+          "id": "k4",
+          "senderId": "owner",
+          "body": "是在拍挂件",
+          "time": "2025-08-05 09:13"
+        },
+        {
+          "id": "k5",
+          "senderId": "owner",
+          "body": "happy happy birthday!!",
+          "time": "2025-09-12 00:00"
+        },
+        {
+          "id": "k6",
+          "senderId": "owner",
+          "body": "俊",
+          "time": "2025-09-12 00:00"
+        },
+        {
+          "id": "k7",
+          "senderId": "owner",
+          "body": "永远的朋友~",
+          "time": "2025-09-12 00:00"
+        },
+        {
+          "id": "k8",
+          "senderId": "namjoon",
+          "body": "朋友？？？",
+          "time": "2025-09-12 00:01"
+        },
+        {
+          "id": "k9",
+          "senderId": "owner",
+          "body": "总之生日快乐",
+          "time": "2025-09-12 00:02"
+        },
+        {
+          "id": "k10",
+          "senderId": "owner",
+          "body": "会在ig上发南俊很帅气的照片的~",
+          "time": "2025-09-12 00:02"
+        },
+        {
+          "id": "k11",
+          "senderId": "owner",
+          "body": "那个pokemon made",
+          "time": "2025-10-26 08:17"
+        },
+        {
+          "id": "k12",
+          "senderId": "owner",
+          "body": "穿起来还可以吧？",
+          "time": "2025-10-26 08:17"
+        },
+        {
+          "id": "k13",
+          "senderId": "namjoon",
+          "body": "起得这么早",
+          "time": "2025-10-26 09:04"
+        },
+        {
+          "id": "k14",
+          "senderId": "namjoon",
+          "body": "",
+          "time": "2025-10-26 09:04",
+          "kind": "image",
+          "media": ""
+        },
+        {
+          "id": "k15",
+          "senderId": "owner",
+          "body": "为什么要把帽子戴在帽子上面hh",
+          "time": "2025-10-26 09:29"
+        }
+      ]
+    },
+    {
+      "id": "kakao-jin",
+      "app": "kakao",
+      "title": "硕珍哥",
+      "participants": [
+        "owner",
+        "jin"
+      ],
+      "messages": [
+        {
+          "id": "kakao-jin-m1",
+          "senderId": "jin",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-yoongi",
+      "app": "kakao",
+      "title": "玧其哥",
+      "participants": [
+        "owner",
+        "yoongi"
+      ],
+      "messages": [
+        {
+          "id": "kakao-yoongi-m1",
+          "senderId": "yoongi",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-jimin",
+      "app": "kakao",
+      "title": "智旻尼",
+      "participants": [
+        "owner",
+        "jimin"
+      ],
+      "messages": [
+        {
+          "id": "kakao-jimin-m1",
+          "senderId": "jimin",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-taehyung",
+      "app": "kakao",
+      "title": "泰亨儿",
+      "participants": [
+        "owner",
+        "taehyung"
+      ],
+      "messages": [
+        {
+          "id": "kakao-taehyung-m1",
+          "senderId": "taehyung",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-jungkook",
+      "app": "kakao",
+      "title": "柾国",
+      "participants": [
+        "owner",
+        "jungkook"
+      ],
+      "messages": [
+        {
+          "id": "kakao-jungkook-m1",
+          "senderId": "jungkook",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-mom",
+      "app": "kakao",
+      "title": "妈妈",
+      "participants": [
+        "owner",
+        "mom"
+      ],
+      "messages": [
+        {
+          "id": "kakao-mom-m1",
+          "senderId": "mom",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-dad",
+      "app": "kakao",
+      "title": "爸爸",
+      "participants": [
+        "owner",
+        "dad"
+      ],
+      "messages": [
+        {
+          "id": "kakao-dad-m1",
+          "senderId": "dad",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-sister",
+      "app": "kakao",
+      "title": "姐姐",
+      "participants": [
+        "owner",
+        "sister"
+      ],
+      "messages": [
+        {
+          "id": "kakao-sister-m1",
+          "senderId": "sister",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    },
+    {
+      "id": "kakao-bangpd",
+      "app": "kakao",
+      "title": "方pd",
+      "participants": [
+        "owner",
+        "bangpd"
+      ],
+      "messages": [
+        {
+          "id": "kakao-bangpd-m1",
+          "senderId": "bangpd",
+          "body": "（这里还没有聊天记录）",
+          "time": "2026-09-04 20:00"
+        }
+      ]
+    }
+  ],
   "content": {
     "notes": [],
     "delivery": [
