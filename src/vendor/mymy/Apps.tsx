@@ -99,7 +99,7 @@ export function MymyKakao(p: SkinProps) {
     scroll = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const node = scroll.current;
-    if (node) node.scrollTop = node.scrollHeight;
+    if (node) node.scrollTop = 0;
   }, [p.thread, messages.length]);
   return (
     <div className="mymy-ui mymy-kakao" data-mymy="kakao">
