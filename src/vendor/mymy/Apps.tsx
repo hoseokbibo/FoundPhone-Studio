@@ -121,7 +121,7 @@ export function MymyKakao(p: SkinProps) {
               const showDate = !prev || prev.time.slice(0, 10) !== m.time.slice(0, 10);
               return (
                 <div key={m.id}>
-                  {showDate && <div className="kz-date">{m.time.slice(0, 10)}</div>}
+                  {showDate && <div className="kz-date"><span>🗓️ {m.time.slice(0, 10)}</span></div>}
                   <div
                     className={
                       "kzm " +
