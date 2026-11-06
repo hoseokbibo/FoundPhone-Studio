@@ -916,3 +916,5 @@
   font-size: 12px;
   font-weight: 500;
 }
+.kz-date { text-align: center; margin: 16px 0 20px; }
+.kz-date span { display: inline-flex; align-items: center; background: rgba(0, 0, 0, 0.08); color: #555; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
