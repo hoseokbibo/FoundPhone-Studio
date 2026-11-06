@@ -54,7 +54,7 @@ function Back({ onClick }: { onClick: () => void }) {
 
 export function MymyKakao(p: SkinProps) {
   const [tab, setTab] = useSkinState<string>(p, "mymyTab", "聊天");
-  const [sent, setSent] = useState<{ id: string; sender: string; body: string; time: string; outgoing: boolean }[]>([]);
+  const [sent, setSent] = useState<{ id: string; thread: string; sender: string; body: string; time: string; outgoing: boolean }[]>([]);
   const [draft, setDraft] = useState("");
   const [query, setQuery] = useState("");
   const [menu, setMenu] = useState(false);
@@ -62,7 +62,7 @@ export function MymyKakao(p: SkinProps) {
   const scroll = useRef<HTMLDivElement>(null);
 
   const baseMessages = p.items.filter((i) => i.title === p.thread);
-  const localMessages = sent.filter((s) => s.sender === p.thread || s.sender === "hope");
+  const localMessages = sent.filter((s) => s.thread === p.thread);
   
   const messages = [
     ...baseMessages.map(i => ({ id: i.id, sender: i.sender, body: i.body, time: i.time, outgoing: i.outgoing, media: i.media, kind: i.kind })),
@@ -80,7 +80,7 @@ export function MymyKakao(p: SkinProps) {
     const msg = draft.trim();
     const now = p.virtualTime || "2026-03-21 23:00";
 
-    setSent(prev => [...prev, { id: "my-" + Date.now(), sender: "hope", body: msg, time: now, outgoing: true }]);
+    setSent(prev => [...prev, { id: "my-" + Date.now(), thread: p.thread, sender: "hope", body: msg, time: now, outgoing: true }]);
     setDraft("");
 
     if (p.thread === "俊" || p.thread === "南俊") {
@@ -97,7 +97,7 @@ export function MymyKakao(p: SkinProps) {
 
       if (reply) {
         setTimeout(() => {
-          setSent(prev => [...prev, { id: "reply-" + Date.now(), sender: "俊", body: reply, time: now, outgoing: false }]);
+          setSent(prev => [...prev, { id: "reply-" + Date.now(), thread: p.thread, sender: "俊", body: reply, time: now, outgoing: false }]);
         }, 1000);
       }
     }
