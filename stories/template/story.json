@@ -813,7 +813,9 @@
     ],
     "contacts": []
   },
-  "variables": {},
+  "variables": {
+    "said_i_miss_you": false
+  },
   "events": [
     {
       "id": "start",
@@ -860,6 +862,33 @@
       "next": [
         "ending-explore"
       ],
+      "once": true
+    },
+    {
+      "id": "auto-rule",
+      "label": "俊的自动回复",
+      "type": "event",
+      "event": "variable",
+      "target": "said_i_miss_you",
+      "conditions": [],
+      "actions": [
+        {
+          "type": "message",
+          "key": "kakao",
+          "value": "俊：我也想你"
+        },
+        {
+          "type": "message",
+          "key": "kakao",
+          "value": "俊：我好想你"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "俊 发来一条消息"
+        }
+      ],
+      "next": [],
       "once": true
     }
   ],
