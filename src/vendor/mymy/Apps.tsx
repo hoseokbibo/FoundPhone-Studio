@@ -61,9 +61,8 @@ export function MymyKakao(p: SkinProps) {
   
   const scroll = useRef<HTMLDivElement>(null);
 
-  // 把内置的 p.items 和我们本地的 sent 合并显示
   const baseMessages = p.items.filter((i) => i.title === p.thread);
-  const localMessages = sent.filter((s) => s.sender === p.thread || s.sender === "hope"); // hope是你的机主名
+  const localMessages = sent.filter((s) => s.sender === p.thread || s.sender === "hope");
   
   const messages = [
     ...baseMessages.map(i => ({ id: i.id, sender: i.sender, body: i.body, time: i.time, outgoing: i.outgoing, media: i.media, kind: i.kind })),
@@ -81,11 +80,9 @@ export function MymyKakao(p: SkinProps) {
     const msg = draft.trim();
     const now = p.virtualTime || "2026-03-21 23:00";
 
-    // 1. 添加你的消息
     setSent(prev => [...prev, { id: "my-" + Date.now(), sender: "hope", body: msg, time: now, outgoing: true }]);
     setDraft("");
 
-    // 2. 触发回复逻辑
     if (p.thread === "俊" || p.thread === "南俊") {
       let reply = "";
       if (msg.includes("我想你了") || msg.includes("你想我吗")) { reply = Math.random() > 0.5 ? "我也想你" : "我好想你"; }
@@ -212,6 +209,247 @@ export function MymyKakao(p: SkinProps) {
           </nav>
         </div>
       )}
+    </div>
+  );
+}
+
+export function MymyInstagram(p: SkinProps) {
+  const [tab, setTab] = useSkinState<string>(p, "mymyTab", "主页"),
+    [liked, setLiked] = useSkinState<string[]>(p, "mymyLiked", []),
+    [saved, setSaved] = useSkinState<string[]>(p, "mymySaved", []),
+    [replies, setReplies] = useSkinState<string[]>(p, "mymyReplies", []),
+    [seen, setSeen] = useSkinState<string[]>(p, "mymySeen", []);
+  const [sheet, setSheet] = useState<Item | null>(null),
+    [selected, setSelected] = useState<Item | null>(null),
+    [story, setStory] = useState(0),
+    [draft, setDraft] = useState(""),
+    [pop, setPop] = useState("");
+  const posts = p.items.filter((i) => i.folder !== "私信" && i.meta.story !== "true"),
+    stories = p.items.filter((i) => i.meta.story === "true"),
+    dms = p.items.filter((i) => i.folder === "私信"),
+    active = stories[story - 1];
+  const toggle = (id: string, values: string[], set: (v: string[]) => void) =>
+    set(values.includes(id) ? values.filter((v) => v !== id) : [...values, id]);
+  useEffect(() => {
+    if (!active) return;
+    const t = setTimeout(() => setStory((n) => (n < stories.length ? n + 1 : 0)), 5000);
+    return () => clearTimeout(t);
+  }, [active, stories.length]);
+  const openStory = (i: number) => {
+    const m = stories[i];
+    setSeen([...new Set([...seen, m.id])]);
+    read(p, m);
+    setStory(i + 1);
+  };
+  const openPost = (i: Item) => {
+    if (p.creator || i.password) p.onItem(i);
+    else {
+      read(p, i);
+      setSelected(i);
+    }
+  };
+  const post = (i: Item) => (
+    <article className="igp" key={i.id}>
+      <header className="igph">
+        <Avatar name={i.sender} src={i.avatar} />
+        <div className="igpn">
+          <button onClick={() => setTab("个人主页")}><b>{i.sender}</b></button>
+          <small>{i.meta.location || i.time}</small>
+        </div>
+        <button aria-label="帖子详情" onClick={() => openPost(i)}><MoreHorizontal /></button>
+      </header>
+      <div className="carw" onDoubleClick={() => { if (!liked.includes(i.id)) setLiked([...liked, i.id]); setPop(i.id); }}>
+        <Media item={i} />
+        {pop === i.id && <Heart className="mymy-heart-pop" fill="white" onAnimationEnd={() => setPop("")} />}
+      </div>
+      <div className="iga">
+        <button aria-label={"点赞" + i.title} aria-pressed={liked.includes(i.id)} onClick={() => toggle(i.id, liked, setLiked)}>
+          <Heart fill={liked.includes(i.id) ? "#ff3040" : "none"} color={liked.includes(i.id) ? "#ff3040" : "currentColor"} />
+        </button>
+        <button aria-label={"评论" + i.title} onClick={() => { read(p, i); setSheet(i); }}><MessageCircle /></button>
+        <button aria-label="分享帖子" onClick={() => setTab("私信")}><Send /></button>
+        <button className="mymy-save" aria-label={"收藏" + i.title} aria-pressed={saved.includes(i.id)} onClick={() => toggle(i.id, saved, setSaved)}>
+          <Bookmark fill={saved.includes(i.id) ? "currentColor" : "none"} />
+        </button>
+      </div>
+      <p className="lk2">{i.likes + (liked.includes(i.id) ? 1 : 0)} 次赞</p>
+      <button className="igc" onClick={() => { openPost(i); }}>
+        <b>{i.sender}</b> {i.body}
+      </button>
+      <button className="cmall" onClick={() => setSheet(i)}>
+        查看评论 {i.comments.length + replies.filter((r) => r.startsWith(i.id + "\t")).length}
+      </button>
+      <p className="igt">{i.time}</p>
+    </article>
+  );
+  return (
+    <div className="mymy-ui mymy-instagram" data-mymy="instagram">
+      <div className="ig">
+        <header className="igh">
+          <button aria-label={selected ? "返回Instagram动态" : "关闭当前App"} onClick={() => (selected ? setSelected(null) : p.onBack())}><ArrowLeft /></button>
+          <span className="igl2">{selected ? "帖子" : tab === "主页" ? "Instagram" : tab}</span>
+          <button aria-label="打开私信" onClick={() => setTab("私信")}><Send /></button>
+        </header>
+        <div className="igb">
+          {selected && post(selected)}
+          {!selected && tab === "主页" && (
+            <>
+              <div className="sts">
+                {stories.map((s, n) => (
+                  <button className="st" key={s.id} onClick={() => openStory(n)}>
+                    <span className={"sr on " + (seen.includes(s.id) ? "seen" : "")}>
+                      <Avatar name={s.sender} src={s.avatar} />
+                    </span>
+                    <small>{s.sender}</small>
+                  </button>
+                ))}
+              </div>
+              {posts.map(post)}
+              {!posts.length && <Blank />}
+            </>
+          )}
+          {!selected && tab === "个人主页" && (
+            <>
+              <div className="pf">
+                <Avatar name={p.owner || "机主"} />
+                <div className="ps">
+                  <div><b>{posts.length}</b><small>帖子</small></div>
+                  <div><b>—</b><small>粉丝</small></div>
+                  <div><b>—</b><small>关注</small></div>
+                </div>
+              </div>
+              <p className="pn">{p.owner}</p>
+              <div className="ptab"><div className="on"><Grid /></div></div>
+              <div className="pg2">
+                {posts.map((i) => (
+                  <button key={i.id} onClick={() => openPost(i)}><Media item={i} /></button>
+                ))}
+              </div>
+            </>
+          )}
+          {!selected && tab === "私信" && (
+            <>
+              {dms.map((i) => (
+                <button className="kzkr" key={i.id} onClick={() => openPost(i)}>
+                  <Avatar name={i.sender} src={i.avatar} />
+                  <span className="kzkn"><b>{i.title}</b><small>{i.body}</small></span>
+                </button>
+              ))}
+              {!dms.length && <Blank />}
+            </>
+          )}
+          {!selected && tab === "搜索" && (
+            <>
+              <input className="mymy-search" aria-label="搜索Instagram" placeholder="搜索" value={draft} onChange={(e) => setDraft(e.target.value)} />
+              {posts.filter((i) => (i.title + i.body + i.sender).includes(draft)).map(post)}
+            </>
+          )}
+        </div>
+        <nav className="mymy-ig-nav">
+          {[Home, Search, Send, User].map((Icon, n) => (
+            <button key={n} aria-label={["主页", "搜索", "私信", "个人主页"][n]} aria-pressed={!selected && tab === ["主页", "搜索", "私信", "个人主页"][n]} onClick={() => { setSelected(null); setTab(["主页", "搜索", "私信", "个人主页"][n]); }}>
+              <Icon />
+            </button>
+          ))}
+        </nav>
+      </div>
+      {sheet && (
+        <div className="kzcs">
+          <button className="kzbk" aria-label="关闭评论" onClick={() => setSheet(null)} />
+          <section className="kzsh" role="dialog" aria-label="Instagram评论">
+            <div className="mymy-sheet-handle" />
+            <header><b>评论</b><button aria-label="关闭评论面板" onClick={() => setSheet(null)}><X /></button></header>
+            <div className="mymy-comments">
+              {[...sheet.comments, ...replies.filter((r) => r.startsWith(sheet.id + "\t")).map((r) => r.split("\t").slice(1).join("\t"))].map((c, n) => (
+                <p key={n}><Avatar name={c.split(":")[0]} />{c}</p>
+              ))}
+            </div>
+            <form className="cmb2" onSubmit={(e) => { e.preventDefault(); if (draft.trim()) { setReplies([...replies, sheet.id + "\t" + draft.trim()]); setDraft(""); } }}>
+              <input aria-label="添加评论" value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="添加评论" maxLength={500} />
+              <button>发布</button>
+            </form>
+          </section>
+        </div>
+      )}
+      {active && (
+        <div className="mymy-story" onPointerDown={(e) => { const box = e.currentTarget.getBoundingClientRect(); const next = e.clientX - box.left < box.width * 0.3 ? story - 1 : story + 1; setStory(next > stories.length ? 0 : Math.max(0, next)); }}>
+          <div className="mymy-story-bars">{stories.map((s, n) => (<i key={s.id} className={n < story ? "seen" : ""} />))}</div>
+          <header>
+            <Avatar name={active.sender} src={active.avatar} />
+            <b>{active.sender}</b>
+            <button aria-label="关闭快拍" onPointerDown={(e) => e.stopPropagation()} onClick={() => setStory(0)}><X /></button>
+          </header>
+          <Media item={active} />
+          <p>{active.body}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function MymyX(p: SkinProps) {
+  const [dark, setDark] = useSkinState<boolean>(p, "x-dark", true);
+  const [tab, setTab] = useSkinState<string>(p, "mymyTab", "推荐"),
+    [likes, setLikes] = useSkinState<string[]>(p, "mymyXLikes", []),
+    [reposts, setReposts] = useSkinState<string[]>(p, "mymyXReposts", []),
+    [marks, setMarks] = useSkinState<string[]>(p, "mymyXMarks", []),
+    [query, setQuery] = useState("");
+  const isLiked = (id: string) => typeof p.ui?.["liked-" + id] === "boolean" ? Boolean(p.ui["liked-" + id]) : likes.includes(id);
+  const isSaved = (id: string) => typeof p.ui?.["saved-" + id] === "boolean" ? Boolean(p.ui["saved-" + id]) : marks.includes(id);
+  const toggle = (id: string, v: string[], set: (x: string[]) => void) => set(v.includes(id) ? v.filter((x) => x !== id) : [...v, id]);
+  return (
+    <div className={"mymy-ui mymy-x " + (dark ? "x-reference-dark" : "")} data-mymy="twitter">
+      <div className="kzxw">
+        <header className="kzxh">
+          <button aria-label="关闭当前App" onClick={p.onBack}><ArrowLeft /></button>
+          <div className="kzxlg">𝕏</div>
+          <button aria-label="切换X外观" onClick={() => setDark(!dark)}><User /></button>
+        </header>
+        <div className="kzxtb">
+          {["为你推荐", "正在关注", "添加 +", "时间"].map((t) => (
+            <button className={t === tab ? "on" : ""} key={t} onClick={() => setTab(t)}>{t}</button>
+          ))}
+        </div>
+        {tab === "搜索" && (
+          <input className="mymy-search" aria-label="搜索X" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="搜索" />
+        )}
+        <div className="kzxfd">
+          {p.items.filter((i) => (i.title + i.body).includes(query)).map((i) => (
+            <article className="kzxt" key={i.id}>
+              <Avatar name={i.sender} src={i.avatar} />
+              <div className="kzxb">
+                <div className="kzxn">
+                  <b>{i.sender}</b>
+                  <small>@{i.meta.handle || "user"} · {i.time.slice(-5)}</small>
+                  <em><MoreHorizontal size={18} /></em>
+                </div>
+                <button className="kzxx" onClick={() => { read(p, i); p.onItem(i); }}>{i.body}</button>
+                {i.media && (
+                  <button className="kzxv" aria-label="打开媒体" onClick={() => p.onItem(i)}><Media item={i} /></button>
+                )}
+                <div className="kzxac">
+                  <button aria-label={"评论" + i.title} onClick={() => p.onItem(i)}><MessageCircle />{i.comments.length}</button>
+                  <button aria-label={"转发" + i.title} aria-pressed={reposts.includes(i.id)} onClick={() => toggle(i.id, reposts, setReposts)}>
+                    <Repeat2 />{reposts.includes(i.id) ? 1 : 0}
+                  </button>
+                  <button aria-label={"点赞" + i.title} aria-pressed={isLiked(i.id)} onClick={() => { toggle(i.id, likes, setLikes); p.onUi?.("liked-" + i.id, !isLiked(i.id)); }}>
+                    <Heart fill={isLiked(i.id) ? "#f91880" : "none"} />{i.likes + (isLiked(i.id) ? 1 : 0)}
+                  </button>
+                  <span><BarChart2 />{i.meta.views || "—"}</span>
+                  <button aria-label={"收藏" + i.title} aria-pressed={isSaved(i.id)} onClick={() => { toggle(i.id, marks, setMarks); p.onUi?.("saved-" + i.id, !isSaved(i.id)); }}><Bookmark /></button>
+                  <button aria-label="分享" onClick={() => p.onItem(i)}><Share /></button>
+                </div>
+              </div>
+            </article>
+          ))}
+          {!p.items.length && <Blank />}
+        </div>
+        <nav className="kzxnav">
+          {[Home, Search, Bell, MessageCircle].map((Icon, n) => (
+            <button key={n} aria-label={["时间线", "搜索", "通知", "私信"][n]} onClick={() => n < 2 && setTab(n ? "搜索" : "推荐")} disabled={n > 1}><Icon /></button>
+          ))}
+        </nav>
+      </div>
     </div>
   );
 }
