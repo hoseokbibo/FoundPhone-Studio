@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { mediaData } from "../../media-data";
 import {
   ArrowLeft,
   Search,
@@ -158,7 +159,7 @@ export function MymyKakao(p: SkinProps) {
                       <span className="kzt">{m.time.slice(-5)}</span>
                     )}
                     <button className={"kzbub" + (m.media ? " kzimg" : "")}>
-                      {m.media ? <Media item={m as any} /> : m.body}
+                      {m.media ? <Media item={{ ...m, media: m.media === "__IMG9__" ? mediaData.img9 : m.media === "__IMG10__" ? mediaData.img10 : m.media } as any} /> : m.body}
                     </button>
                     {!m.outgoing && run.last && (
                       <span className="kzt">{m.time.slice(-5)}</span>
