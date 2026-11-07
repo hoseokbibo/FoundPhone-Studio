@@ -106,6 +106,14 @@
           "time": "2025-08-05 09:12"
         },
         {
+          "id": "img-1",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2025-08-05 09:12",
+          "kind": "image",
+          "media": "./img1.jpg"
+        },
+        {
           "id": "k3",
           "senderId": "owner",
           "body": "是在拍挂件",
@@ -164,6 +172,14 @@
           "senderId": "namjoon",
           "body": "起得这么早",
           "time": "2025-10-26 09:04"
+        },
+        {
+          "id": "img-2",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2025-10-26 09:04",
+          "kind": "image",
+          "media": "./img2.jpg"
         },
         {
           "id": "k13",
@@ -340,6 +356,14 @@
           "time": "2026-01-19 18:02"
         },
         {
+          "id": "img-3",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-01-19 18:02",
+          "kind": "image",
+          "media": "./img3.jpg"
+        },
+        {
           "id": "k42",
           "senderId": "owner",
           "body": "好像也看不出什么",
@@ -412,6 +436,14 @@
           "time": "2026-01-31 23:32"
         },
         {
+          "id": "img-4",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-02-08 20:48",
+          "kind": "image",
+          "media": "./img4.jpg"
+        },
+        {
           "id": "k54",
           "senderId": "owner",
           "body": "很帅气呢",
@@ -422,6 +454,14 @@
           "senderId": "owner",
           "body": "在室内穿两件不会热吗？",
           "time": "2026-02-08 20:49"
+        },
+        {
+          "id": "img-5",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-02-08 20:49",
+          "kind": "image",
+          "media": "./img5.jpg"
         },
         {
           "id": "k56",
@@ -550,6 +590,14 @@
           "time": "2026-02-26 10:45"
         },
         {
+          "id": "img-6",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-02-26 10:45",
+          "kind": "image",
+          "media": "./img6.jpg"
+        },
+        {
           "id": "k77",
           "senderId": "namjoon",
           "body": " ",
@@ -568,6 +616,14 @@
           "senderId": "owner",
           "body": "我要发这个",
           "time": "2026-02-26 10:59"
+        },
+        {
+          "id": "img-7",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-02-26 10:59",
+          "kind": "image",
+          "media": "./img7.jpg"
         },
         {
           "id": "k80",
@@ -590,6 +646,14 @@
           "senderId": "owner",
           "body": "拍摄那天什么时候拍的？",
           "time": "2026-03-20 11:30"
+        },
+        {
+          "id": "img-8",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-03-20 11:30",
+          "kind": "image",
+          "media": "./img8.jpg"
         },
         {
           "id": "k83",
@@ -676,6 +740,14 @@
           "time": "2026-04-02 14:17",
           "media": "/img4.jpg",
           "kind": "image"
+        },
+        {
+          "id": "img-9",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-04-02 14:31",
+          "kind": "image",
+          "media": "./img9.jpg"
         },
         {
           "id": "k97",
@@ -784,6 +856,14 @@
           "senderId": "namjoon",
           "body": "喜欢吗？",
           "time": "2026-05-15 11:54"
+        },
+        {
+          "id": "img-10",
+          "senderId": "owner",
+          "body": " ",
+          "time": "2026-05-15 11:54",
+          "kind": "image",
+          "media": "./img10.jpg"
         },
         {
           "id": "k115",
