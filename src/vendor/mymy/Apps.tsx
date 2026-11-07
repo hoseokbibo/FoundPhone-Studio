@@ -94,6 +94,29 @@ export function MymyKakao(p: SkinProps) {
       else if (msg.includes("好累")) { reply = "来找我补充体力吧"; }
       else if (msg.includes("抱抱")) { reply = "明天见面吧"; }
       else if (msg.includes("亲亲") || msg.includes("啵啵") || msg.includes("030")) { reply = "😙"; }
+      // --- 吃醋与拉扯 ---
+      else if (msg.includes("硕珍哥") || msg.includes("玧其哥") || msg.includes("智旻") || msg.includes("泰亨") || msg.includes("柾国")) { reply = "老是提他们干什么…"; }
+      else if (msg.includes("吃醋")) { reply = "嗯"; }
+      else if (msg.includes("生气") || msg.includes("别生气")) { reply = "我没对你生气过"; }
+      else if (msg.includes("不理我") || msg.includes("怎么不回")) { reply = "刚刚在忙，没有看手机"; }
+      
+      // --- 撒娇与日常 ---
+      else if (msg.includes("无聊") || msg.includes("好无聊")) { reply = "那明天见一面吗？"; }
+      else if (msg.includes("好看吗") || msg.includes("帅吗") || msg.includes("漂亮吗")) { reply = "喜欢"; }
+      else if (msg.includes("减肥")) { reply = "抱起来会不舒服的，多吃一点饭吧"; }
+      else if (msg.includes("在吃饭")) { reply = "我突然有点饿…可以来找你一起吃吗？"; }
+      else if (msg.includes("好饿")) { reply = "想吃什么？甜品还是…？"; }
+      
+      // --- 酒局查岗 ---
+      else if (msg.includes("喝酒")) { reply = "跟谁？在哪里？为什么不叫我一起？等等谁送你回家？"; }
+      
+      // --- 天气与约会 ---
+      else if (msg.includes("晴天") || msg.includes("天气好好") || msg.includes("天气真好")) { reply = "那要出去约会吗？"; }
+      else if (msg.includes("下雨") || msg.includes("雨天")) { reply = "出门记得带伞，不要感冒"; }
+      
+      // --- 早晚安 ---
+      else if (msg.includes("早安")) { reply = "早"; }
+      else if (msg.includes("晚安")) { reply = "我们号锡今天也辛苦了"; }
 
       if (reply) {
         setTimeout(() => {
