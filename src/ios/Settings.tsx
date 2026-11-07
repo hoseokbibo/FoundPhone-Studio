@@ -43,6 +43,8 @@ const groups: Row[][] = [
     [Volume2, "声音与触感", "#ff2d55"],
     [Moon, "专注模式", "#5856d6"],
     [Shield, "面容 ID 与密码", "#34c759"],
+    [Shield, "已储存的面容 ID：hoseok", "#8e8e93"],
+    [Shield, "已储存的面容 ID：南啾", "#8e8e93"],
   ],
 ];
 export function NativeSettings({
